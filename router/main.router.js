@@ -2,15 +2,27 @@ const express = require('express');
 const router = express.Router();
 
 
-const { mainPage, admin,tablepage,newgame,statusupdate } = require('../controller/main.controller')
+const { ping, mainPage, userList, tablePage, createGame, gameStatusupdate, gamePage, loginPage, Login, getTemplate, allGamePage, recentPlayedGames, recentplayPage } = require('../controller/main.controller')
+
+
+
 
 // router.get("/mainpage", homepage)
-router.get("/", mainPage);
-router.get("/table",tablepage)
-router.get('/admin', admin);
-router.post('/admin/newgame',newgame);
-router.post('/admin/status',statusupdate);
+//pages
+router.get("/login", loginPage);
+router.get("/adminpanel", mainPage);
+router.get("/userdata", tablePage)
+router.get("/admin/newgame", gamePage)
+router.get("/admin/allgame", allGamePage)
+router.get('/recentplay', recentplayPage)
 
+router.get("/", ping);
+router.get("/admin/userList", userList);
+router.post("/admin/createGame", createGame);
+router.post("/admin/status", gameStatusupdate);
+router.get("/admin/gettemp", getTemplate);
+router.post("/adminLogin", Login);
+router.get("/admin/recentPlayedGames", recentPlayedGames);
 
 
 
